@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts.frontend.homepage');
 });
+Route::get('admin_dashbord', function () {
+    return view('admin_dashbord.index_admin');
+})->name('admin_dashbord');
