@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->string('star');
+            $table->text('comment');
+            $table->boolean('state');
             $table->timestamps();
         });
     }

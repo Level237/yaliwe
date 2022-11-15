@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('delivery__items', function (Blueprint $table) {
             $table->id();
+            $table->string('quantity');
             $table->timestamps();
         });
     }
