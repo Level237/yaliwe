@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Bill;
 use App\Models\Cart;
 use App\Models\Role;
 use App\Models\Review;
@@ -68,5 +69,10 @@ class User extends Authenticatable
     public function carts():HasMany
     {
         return $this->hasMany(Cart::class);
+    }
+
+    public function bills():HasMany
+    {
+        return $this->hasMany(Bill::class);
     }
 }
