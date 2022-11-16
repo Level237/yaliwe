@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts.frontend.homepage');
 });
+<<<<<<< HEAD
 
 // Controllers admin
 Route::middleware(['auth','admin'])->name('admin.')->prefix('yaliwe.admin')->group(function(){
@@ -31,3 +32,8 @@ Route::middleware(['auth','vendor'])->name('vendor.')->prefix('yaliwe.vendor')->
 Route::middleware(['auth','customer'])->name('customer.')->prefix('yaliwe.customer')->group(function(){
 
 });
+=======
+Route::get('admin_dashbord', function () {
+    return view('admin_dashbord.index_admin');
+})->name('admin_dashbord');
+>>>>>>> refs/remotes/origin/main
