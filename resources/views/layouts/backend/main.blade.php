@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Nest Dashboard</title>
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -142,11 +141,11 @@
             </nav>
         </aside>
         <main class="main-wrap">
-        @include('admin_dashbord.layouts.header_admin')
+        @include('layouts.backend.header')
 
         @yield('content')
 
-        @include('admin_dashbord.layouts.footer_admin')
+        @include('layouts.backend.footer')
         </main>
         <script src="admin/js/vendors/jquery-3.6.0.min.js"></script>
         <script src="admin/js/vendors/bootstrap.bundle.min.js"></script>
