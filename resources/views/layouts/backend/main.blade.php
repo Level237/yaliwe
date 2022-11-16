@@ -142,11 +142,11 @@
             </nav>
         </aside>
         <main class="main-wrap">
-        @include('admin_dashbord.layouts.header_admin')
+        @include('layouts.backend.header')
 
         @yield('content')
 
-        @include('admin_dashbord.layouts.footer_admin')
+        @include('layouts.backend.footer')
         </main>
         <script src="admin/js/vendors/jquery-3.6.0.min.js"></script>
         <script src="admin/js/vendors/bootstrap.bundle.min.js"></script>
