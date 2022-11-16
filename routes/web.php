@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts.frontend.homepage');
 });
+
+// Controllers admin
+Route::middleware(['auth','admin'])->name('admin.')->prefix('yaliwe.admin')->group(function(){
+
+});
+
+// Controllers vendor
+Route::middleware(['auth','vendor'])->name('vendor.')->prefix('yaliwe.vendor')->group(function(){
+
+});
+
+// Controllers vendor
+Route::middleware(['auth','customer'])->name('customer.')->prefix('yaliwe.customer')->group(function(){
+
+});
