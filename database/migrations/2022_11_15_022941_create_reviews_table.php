@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('star');
             $table->text('comment');
+            $table->foreignIdFor(User::class)
+            ->constrained()
+            ->restrictOnUpdate()
+            ->restrictOnDelete();
             $table->boolean('state');
             $table->timestamps();
         });

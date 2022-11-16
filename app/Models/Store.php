@@ -2,10 +2,29 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Image;
+use App\Models\Address;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Store extends Model
 {
     use HasFactory;
+
+    protected $fillable=[
+        'name'
+    ];
+
+
+    public function image():BelongsTo
+    {
+        return $this->belongsTo(Image::class);
+    }
+
+    public function adress():BelongsTo
+
+    {
+        return $this->belongsTo(Address::class);
+    }
 }
