@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Store;
 use Illuminate\Http\Request;
+use App\services\StoreServices;
+use App\Http\Controllers\Controller;
 
 class StoreController extends Controller
 {
@@ -24,7 +26,7 @@ class StoreController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.store.create');
     }
 
     /**
@@ -35,7 +37,9 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        (new StoreServices)->store($request);
+
+        return to_route('dashboard');
     }
 
     /**
