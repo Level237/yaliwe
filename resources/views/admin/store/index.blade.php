@@ -45,10 +45,16 @@
                             <td><span class="badge rounded-pill alert-warning">{{ $store->status }}</span></td>
 
                             <td class="text-end">
-                                <a href="{{ route('admin.profile.store',[$store->name,$store->id]) }}" class="btn btn-md rounded font-sm">Detail</a>
-                                <a href="{{ route('admin.stores.edit',$store->id) }}" class="btn btn-sm font-sm rounded btn-brand"> <i class="material-icons md-edit"></i> Edit </a>
-                                    <a href="#" class="btn btn-sm font-sm btn-light rounded"> <i class="material-icons md-delete_forever"></i> Delete </a>
-                                <!-- dropdown //end -->
+                                <div class="d-flex justify-content-end align-items-center">
+                                    <div class="p-2"> <a href="{{ route('admin.profile.store',[$store->name,$store->id]) }}" class="btn btn-md rounded font-sm">Detail</a></div>
+                                    <div class="p-2"> <a href="{{ route('admin.stores.edit',$store->id) }}" class="btn btn-sm font-sm rounded btn-brand"> <i class="material-icons md-edit"></i> Edit </a></div>
+                                    <div class="p-2"><form method="POST" action="{{ route('admin.stores.destroy', $store->id) }}" onsubmit="return confirm('Are you sure?')">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm rounded font-sm"  ><i class="material-icons md-edit" aria-hidden="true" title="Suprimer">Suprimer</i></button>
+
+                                       </form></div>
+                                  </div>
                             </td>
                         </tr>
 

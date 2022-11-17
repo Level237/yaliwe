@@ -103,5 +103,12 @@ class StoreServices{
         return $store;
     }
 
+    public function delete($store){
+        $image=Image::find($store->image->id);
+        Storage::delete($image);
+
+        $store->delete();
+    }
+
 
 }

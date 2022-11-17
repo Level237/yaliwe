@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Store;
-use Illuminate\Http\Request;
-use App\services\StoreServices;
 use App\Http\Controllers\Controller;
-use App\Models\Address;
+use Illuminate\Http\Request;
 
-class StoreController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +14,7 @@ class StoreController extends Controller
      */
     public function index()
     {
-        $stores=(new StoreServices())->index();
-
-        return view('admin.store.index',compact('stores'));
+        //
     }
 
     /**
@@ -29,7 +24,7 @@ class StoreController extends Controller
      */
     public function create()
     {
-        return view('admin.store.create');
+        //
     }
 
     /**
@@ -40,9 +35,7 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        (new StoreServices)->store($request);
-
-        return to_route('admin.stores.index');
+        //
     }
 
     /**
@@ -64,9 +57,7 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        $store=(new StoreServices())->profile($id);
-
-        return view('admin.store.edit',compact('store'));
+        //
     }
 
     /**
@@ -76,12 +67,9 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Store $store)
+    public function update(Request $request, $id)
     {
-
-        (new StoreServices())->update($request,$store);
-
-        return to_route('admin.stores.index');
+        //
     }
 
     /**
@@ -90,21 +78,8 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Store $store)
+    public function destroy($id)
     {
-        (new StoreServices())->delete($store);
-
-        return to_route('admin.stores.index');
-    }
-
-    public function profile($name,$id){
-
-        $store=(new StoreServices())->profile($id);
-
-        return view('admin.store.profile',compact('store'));
-    }
-
-    public function getModel(){
-
+        //
     }
 }
