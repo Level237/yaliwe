@@ -16,7 +16,9 @@ class StoreController extends Controller
      */
     public function index()
     {
-        //
+        $stores=(new StoreServices())->index();
+
+        return view('admin.store.index',compact('stores'));
     }
 
     /**

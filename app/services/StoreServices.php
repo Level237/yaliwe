@@ -10,8 +10,19 @@ use Illuminate\Support\Facades\Storage;
 
 class StoreServices{
 
+
+    // admin and vendor store
     public function store($request){
 
+        $status="";
+
+        if(auth()->user()->role_id==1){
+            $status="published";
+        }
+
+        else{
+            $status="pending";
+        }
         $adresse=new Address;
         $adresse->street=$request->street;
         $adresse->number=$request->number;
@@ -31,7 +42,21 @@ class StoreServices{
         $store->name=$request->name;
         $store->image_id=$imageSave->id;
         $store->address_id=$adresse->id;
+        $store->status=$status;
         $store->save();
+
+    }
+
+
+    //admin store
+    public function index(){
+
+        $store=Store::all();
+
+        return $store;
+    }
+
+    public function update(){
 
     }
 }

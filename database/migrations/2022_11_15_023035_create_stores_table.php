@@ -30,6 +30,7 @@ return new class extends Migration
             ->restrictOnUpdate()
             ->restrictOnDelete();
 
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

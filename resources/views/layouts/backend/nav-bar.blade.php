@@ -45,6 +45,7 @@
                 </a>
                 <div class="submenu">
                     <a href="{{ route('admin.stores.create') }}">Ajouter une Boutique</a>
+                    <a href="{{ route('admin.stores.index') }}">Liste</a>
                 </div>
             </li>
             <li class="menu-item has-submenu">

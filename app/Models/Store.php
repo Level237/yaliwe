@@ -15,7 +15,8 @@ class Store extends Model
     protected $fillable=[
         'name',
         'address_id',
-        'image_id'
+        'image_id',
+        'status'
     ];
 
 
