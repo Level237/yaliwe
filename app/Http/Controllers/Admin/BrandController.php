@@ -61,7 +61,8 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brand=(new BrandServices())->edit($id);
+        return view('admin.brand.edit',compact('brand'));
     }
 
     /**

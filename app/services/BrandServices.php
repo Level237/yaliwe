@@ -20,4 +20,11 @@ class BrandServices {
 
         return $brands;
     }
+
+    public function edit($id){
+
+        $brand=Brand::find($id);
+
+        return $brand;
+    }
 }
