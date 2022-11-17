@@ -1,5 +1,5 @@
 @extends('layouts.backend.main')
-@section('title', 'Dashboard-Admin')
+@section('title', 'Admin Dashboard')
 @section('content')
 
 <section class="content-main">
