@@ -42,7 +42,7 @@ class StoreController extends Controller
     {
         (new StoreServices)->store($request);
 
-        return to_route('dashboard');
+        return to_route('admin.stores.index');
     }
 
     /**
@@ -80,6 +80,8 @@ class StoreController extends Controller
     {
 
         (new StoreServices())->update($request,$store);
+
+        return to_route('admin.stores.index');
     }
 
     /**
