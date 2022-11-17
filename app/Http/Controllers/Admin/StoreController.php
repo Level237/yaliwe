@@ -76,10 +76,10 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Store $store,Address $adress)
+    public function update(Request $request, Store $store)
     {
 
-        (new StoreServices())->update($request,$store,$adress);
+        (new StoreServices())->update($request,$store);
     }
 
     /**

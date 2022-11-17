@@ -56,7 +56,7 @@ class StoreServices{
         return $store;
     }
 
-    public function update($request,$store,$adress){
+    public function update($request,$store){
 
         $status="";
 
@@ -67,7 +67,7 @@ class StoreServices{
         else{
             $status="pending";
         }
-        $image=$store->image->path;
+        $imageSave=$store->image->id;
         if($request->hasFile('path')){
             Storage::delete($store->image->path);
             $image=$request->file('path')->store('public/images/store');
@@ -77,17 +77,21 @@ class StoreServices{
             $imageSave->save();
 
         }
-        $adress=$adress->update([
+
+        $adress=Address::updateOrCreate([
+            'id'=>$store->address->id
+        ],[
             'street'=>$request->street,
             'number'=>$request->number,
             'city'=>$request->city,
             'country_code'=>$request->country_code,
             'country'=>$request->country
-        ]);
+        ]
+            );
         $store->update([
             'name'=>$request->name,
             'image_id'=>$imageSave,
-            'address_id'=>$adress,
+            'address_id'=>$adress->id,
             'status'=>$status
         ]);
     }
