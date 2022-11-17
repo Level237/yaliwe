@@ -51,7 +51,7 @@
                                     <div class="p-2"><form method="POST" action="{{ route('admin.stores.destroy', $store->id) }}" onsubmit="return confirm('Are you sure?')">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm rounded font-sm"  ><i class="material-icons md-edit" aria-hidden="true" title="Suprimer">Suprimer</i></button>
+                                        <button type="submit" class="btn btn-danger btn-sm rounded font-sm"  ><i class="material-icons md-delete_forever" aria-hidden="true" title="Suprimer">Suprimer</i></button>
 
                                        </form></div>
                                   </div>
