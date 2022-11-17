@@ -9,7 +9,7 @@
                     <div class="header-info">
                         <ul>
                             <li><a href="page-about.htlm">About Us</a></li>
-                            <li><a href="page-account.html">My Account</a></li>
+                            <li><a href="{{ route('login') }}">My Account</a></li>
                             <li><a href="shop-wishlist.html">Wishlist</a></li>
                             <li><a href="shop-order.html">Order Tracking</a></li>
                         </ul>
@@ -176,7 +176,7 @@
                                 <a href="page-account.html"><span class="lable ml-0">Account</span></a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                     <ul>
-                                        <li><a href="page-account.html"><i class="fi fi-rs-user mr-10"></i>My Account</a></li>
+                                        <li><a href="{{ route('login') }}"><i class="fi fi-rs-user mr-10"></i>My Account</a></li>
                                         <li><a href="page-account.html"><i class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a></li>
                                         <li><a href="page-account.html"><i class="fi fi-rs-label mr-10"></i>My Voucher</a></li>
                                         <li><a href="shop-wishlist.html"><i class="fi fi-rs-heart mr-10"></i>My Wishlist</a></li>
@@ -412,7 +412,7 @@
                                 <ul class="sub-menu">
                                     <li><a href="page-about.html">About Us</a></li>
                                     <li><a href="page-contact.html">Contact</a></li>
-                                    <li><a href="page-account.html">My Account</a></li>
+                                    <li><a href="{{ route('login') }}">My Account</a></li>
                                     <li><a href="page-login.html">Login</a></li>
                                     <li><a href="page-register.html">Register</a></li>
                                     <li><a href="page-forgot-password.html">Forgot password</a></li>
@@ -634,7 +634,7 @@
                             <ul class="dropdown">
                                 <li><a href="page-about.html">About Us</a></li>
                                 <li><a href="page-contact.html">Contact</a></li>
-                                <li><a href="page-account.html">My Account</a></li>
+                                <li><a href="{{ route('login') }}">My Account</a></li>
                                 <li><a href="page-login.html">Login</a></li>
                                 <li><a href="page-register.html">Register</a></li>
                                 <li><a href="page-forgot-password.html">Forgot password</a></li>
