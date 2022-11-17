@@ -27,4 +27,12 @@ class BrandServices {
 
         return $brand;
     }
+
+    public function update($request,$store){
+
+        $store->update([
+            'name'=>$request->name,
+            'state'=>1
+        ]);
+    }
 }

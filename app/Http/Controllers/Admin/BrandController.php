@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\services\BrandServices;
 use Illuminate\Http\Request;
 
@@ -72,9 +73,11 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Brand $brand)
     {
-        //
+        (new BrandServices())->update($request,$brand);
+
+        return to_route('admin.brands.index');
     }
 
     /**

@@ -18,8 +18,9 @@
                     <img src="{{ asset("admin/imgs/brands/pngegg.png") }}" class="img-fluid" alt="...">
                 </div>
                 <div class="col-lg-6">
-                    <form action="{{ route('admin.brands.store') }}" method="post">
+                    <form action="{{ route('admin.brands.update',$brand->id) }}" method="post">
                         @csrf
+                        @method('PUT')
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nom de votre marque</label>
                             <input type="text" name="name" value="{{ $brand->name }}" class="form-control" id="exampleFormControlInput1" placeholder="Entrez une marque">
