@@ -86,8 +86,10 @@ class BrandController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Brand $brand)
     {
-        //
+        (new BrandServices())->delete($brand);
+
+        return to_route('admin.brands.index');
     }
 }

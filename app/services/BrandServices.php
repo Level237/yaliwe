@@ -35,4 +35,9 @@ class BrandServices {
             'state'=>1
         ]);
     }
+
+    public function delete($brand){
+
+        $brand->delete();
+    }
 }
