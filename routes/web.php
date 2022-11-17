@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,7 @@ Route::get('/', function () {
 // Controllers admin
 Route::middleware(['auth','admin'])->name('admin.')->prefix('yaliwe.admin')->group(function(){
 
+    route::resource('stores',StoreController::class);
 });
 
 // Controllers vendor

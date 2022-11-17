@@ -15,7 +15,8 @@ class Address extends Model
         'street',
         'number',
         'city',
-        'country_code'
+        'country_code',
+        'country'
     ];
 
     public function stores():HasMany
