@@ -25,7 +25,7 @@ class Store extends Model
         return $this->belongsTo(Image::class);
     }
 
-    public function adress():BelongsTo
+    public function address():BelongsTo
 
     {
         return $this->belongsTo(Address::class);

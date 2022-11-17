@@ -88,4 +88,11 @@ class StoreController extends Controller
     {
         //
     }
+
+    public function profile($name,$id){
+
+        $store=(new StoreServices())->profile($id);
+
+        return view('admin.store.profile',compact('store'));
+    }
 }

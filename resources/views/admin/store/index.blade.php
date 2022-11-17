@@ -45,11 +45,11 @@
                             <td><span class="badge rounded-pill alert-warning">{{ $store->status }}</span></td>
 
                             <td class="text-end">
-                                <a href="#" class="btn btn-md rounded font-sm">Detail</a>
+                                <a href="{{ route('admin.profile.store',[$store->name,$store->id]) }}" class="btn btn-md rounded font-sm">Detail</a>
                                 <div class="dropdown">
                                     <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i class="material-icons md-more_horiz"></i> </a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="">View detail</a>
+                                        <a class="dropdown-item" >View detail</a>
                                         <a class="dropdown-item" href="#">Edit info</a>
                                         <a class="dropdown-item text-danger" href="#">Delete</a>
                                     </div>

@@ -26,6 +26,7 @@ Route::get('/', function () {
 Route::middleware(['auth','admin'])->name('admin.')->prefix('yaliwe.admin')->group(function(){
 
     route::resource('stores',StoreController::class);
+    route::get('profile/Store-{name}{id}',[StoreController::class,'profile'])->name('profile.store');
 });
 
 // Controllers vendor
@@ -33,7 +34,7 @@ Route::middleware(['auth','vendor'])->name('vendor.')->prefix('yaliwe.vendor')->
 
 });
 
-// Controllers vendor
+// Controllers customer
 Route::middleware(['auth','customer'])->name('customer.')->prefix('yaliwe.customer')->group(function(){
 
 });

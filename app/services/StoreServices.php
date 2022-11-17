@@ -59,4 +59,11 @@ class StoreServices{
     public function update(){
 
     }
+
+    public function profile($id){
+
+        $store=Store::find($id);
+
+        return $store;
+    }
 }
