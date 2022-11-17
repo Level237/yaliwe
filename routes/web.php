@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::get('/', function () {
 Route::middleware(['auth','admin'])->name('admin.')->prefix('yaliwe.admin')->group(function(){
 
     route::resource('stores',StoreController::class);
+    route::resource('brands',BrandController::class);
     route::get('profile/Store-{name}{id}',[StoreController::class,'profile'])->name('profile.store');
 });
 

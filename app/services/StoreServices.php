@@ -105,8 +105,10 @@ class StoreServices{
 
     public function delete($store){
         $image=Image::find($store->image->id);
+        $adress=Address::find($store->address->id);
         $store->delete();
         $image->delete();
+        $adress->delete();
 
 
 
