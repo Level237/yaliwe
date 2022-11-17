@@ -6,6 +6,7 @@ use App\Models\Store;
 use Illuminate\Http\Request;
 use App\services\StoreServices;
 use App\Http\Controllers\Controller;
+use App\Models\Address;
 
 class StoreController extends Controller
 {
@@ -63,7 +64,9 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        //
+        $store=(new StoreServices())->profile($id);
+
+        return view('admin.store.edit',compact('store'));
     }
 
     /**
@@ -73,9 +76,10 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Store $store,Address $adress)
     {
-        //
+
+        (new StoreServices())->update($request,$store,$adress);
     }
 
     /**
@@ -94,5 +98,9 @@ class StoreController extends Controller
         $store=(new StoreServices())->profile($id);
 
         return view('admin.store.profile',compact('store'));
+    }
+
+    public function getModel(){
+
     }
 }

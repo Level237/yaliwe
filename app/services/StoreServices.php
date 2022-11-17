@@ -56,8 +56,40 @@ class StoreServices{
         return $store;
     }
 
-    public function update(){
+    public function update($request,$store,$adress){
 
+        $status="";
+
+        if(auth()->user()->role_id==1){
+            $status="published";
+        }
+
+        else{
+            $status="pending";
+        }
+        $image=$store->image->path;
+        if($request->hasFile('path')){
+            Storage::delete($store->image->path);
+            $image=$request->file('path')->store('public/images/store');
+            $imageSave=new Image;
+            $imageSave->path=$image;
+            $imageSave->slug=Str::slug($request->name);
+            $imageSave->save();
+
+        }
+        $adress=$adress->update([
+            'street'=>$request->street,
+            'number'=>$request->number,
+            'city'=>$request->city,
+            'country_code'=>$request->country_code,
+            'country'=>$request->country
+        ]);
+        $store->update([
+            'name'=>$request->name,
+            'image_id'=>$imageSave,
+            'address_id'=>$adress,
+            'status'=>$status
+        ]);
     }
 
     public function profile($id){
@@ -66,4 +98,6 @@ class StoreServices{
 
         return $store;
     }
+
+
 }
