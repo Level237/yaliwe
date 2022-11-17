@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,7 @@ Route::get('/', function () {
 // Controllers admin
 Route::middleware(['auth','admin'])->name('admin.')->prefix('yaliwe.admin')->group(function(){
 
+    route::resource('stores',StoreController::class);
 });
 
 // Controllers vendor
@@ -36,9 +38,9 @@ Route::middleware(['auth','customer'])->name('customer.')->prefix('yaliwe.custom
 
 });
 
-Route::get('admin_dashbord', function () {
+/*Route::get('admin_dashbord', function () {
     return view('admin_dashbord.index_admin');
-})->name('admin_dashbord');
+})->name('admin_dashbord');*/
 
 Route::get('/dashboard', function () {
     return view('dashboard');
