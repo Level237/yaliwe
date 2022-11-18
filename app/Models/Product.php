@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Tag;
 use App\Models\Cart;
 use App\Models\User;
 use App\Models\Brand;
@@ -68,5 +69,10 @@ class Product extends Model
     public function carts():BelongsToMany
     {
         return $this->belongsToMany(Cart::class);
+    }
+
+    public function tags():BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }
