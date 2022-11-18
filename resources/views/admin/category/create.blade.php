@@ -9,8 +9,8 @@
     <div class="row">
         <div class="col-9">
             <div class="content-header">
-                <h2 class="content-title">Ajouter une Boutique</h2>
-        <form method="POST" action="{{ route('admin.stores.store') }}" enctype="multipart/form-data">
+                <h2 class="content-title">Ajouter une Categorie</h2>
+        <form method="POST" action="{{ route('admin.category.store') }}" enctype="multipart/form-data">
                         @csrf
                             <div>
                                 <button class="btn btn-light rounded font-sm mr-5 text-body hover-up">Save to draft</button>
@@ -21,51 +21,29 @@
                     <div class="col-lg-6">
                         <div class="card mb-4">
                             <div class="card-header">
-                                <h4>Basic</h4>
+                                <h4>Details</h4>
                             </div>
                             <div class="card-body">
-
-                                    <div class="mb-4">
-                                        <label for="product_name" class="form-label">Nom</label>
-                                        <input type="text" name="name" placeholder="Type here" class="form-control" id="product_name" />
-                                    </div>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="mb-4">
-                                                <label class="form-label">Pays</label>
+                                                <label class="form-label">Nom</label>
                                                 <div class="row gx-2">
-                                                    <input placeholder="" name="country" type="text" class="form-control" />
+                                                    <input placeholder="Nom de la categorie" name="name" type="text" class="form-control" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="mb-4">
-                                                <label class="form-label">ville</label>
-                                                <input placeholder="" name="city" type="text" class="form-control" />
+                                                <label class="form-label">Slug</label>
+                                                <input placeholder="Slug de la categorie" name="slug" type="text" class="form-control" />
                                             </div>
                                         </div>
-                                        <div class="mb-4">
-                                            <label class="form-label">Rue</label>
-                                            <input placeholder="" name="street" type="text" class="form-control" />
-                                        </div>
-
-                                        <div class="row align-items-center">
-                                            <div class="col-lg-4">
-                                                <select class="form-select"  id="" name="country_code">
-                                                    <option value="+237">+237</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-lg-8">
-
-                                            <input type="text" name="number" placeholder="Numero de Telephone" class="form-control" id="product_name" />
-                                            </div>
-                                        </div>
-
                                     </div>
-
-
-
-
+                                    <div class="mb-4">
+                                        <label for="category_name" class="form-label">Description</label>
+                                        <input type="text" name="description" height="30p" placeholder="Votre descriptionn ici" class="form-control" id="category_name" />
+                                    </div>
                             </div>
                         </div>
 

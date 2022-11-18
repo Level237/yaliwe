@@ -13,7 +13,7 @@
             <p>Lorem ipsum dolor sit amet.</p>
         </div>
         <div>
-            <a href="{{ route('admin.category.create') }}" class="btn btn-primary"><i class="text-muted material-icons md-post_add"></i>Create report</a>
+            <a href="{{ route('admin.category.create') }}" class="btn btn-primary"><i class="text-muted material-icons md-post_add"></i>Nouvelle Categorie</a>
         </div>
     </div>
     <div class="card mb-4">
@@ -24,16 +24,17 @@
                     <div class="custom_select">
                         <select class="form-select select-nice">
                             <option selected>All Categories</option>
-                            <option>Women's Clothing</option>
-                            <option>Men's Clothing</option>
-                            <option>Cellphones</option>
-                            <option>Computer & Office</option>
-                            <option>Consumer Electronics</option>
-                            <option>Jewelry & Accessories</option>
-                            <option>Home & Garden</option>
-                            <option>Luggage & Bags</option>
-                            <option>Shoes</option>
-                            <option>Mother & Kids</option>
+
+                            @forelse ($categories as $category)
+                            <option>
+                                    <img src="{{ Storage::url($category->image->path) }}" alt="" style="width:25px">
+                                    <b>{{ $category->name }}
+                            </option>
+
+                                @empty
+
+                                @endforelse
+
                         </select>
                     </div>
                 </div>

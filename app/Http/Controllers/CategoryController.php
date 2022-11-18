@@ -38,7 +38,7 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($request)
+    public function store(Request $request)
     {
 
         $status="";
@@ -64,8 +64,10 @@ class CategoryController extends Controller
         $category=new Category();
         $category->name=$request->name;
         $category->image_id=$imageSave->id;
-        $category->status=$status;
-        $category->isAdmin=$isAdmin;
+        $category->description=$request->description;
+        $category->slug=$request->slug;
+        // $category->status=$status;
+        // $category->isAdmin=$isAdmin;
         $category->save();
 
 
