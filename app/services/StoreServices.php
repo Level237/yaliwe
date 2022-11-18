@@ -15,13 +15,16 @@ class StoreServices{
     public function store($request){
 
         $status="";
+        $isAdmin=0;
 
         if(auth()->user()->role_id==1){
             $status="published";
+            $isAdmin=1;
         }
 
         else{
             $status="pending";
+            $isAdmin=0;
         }
         $adresse=new Address;
         $adresse->street=$request->street;
@@ -35,7 +38,7 @@ class StoreServices{
 
         $imageSave=new Image;
         $imageSave->path=$image;
-        $imageSave->slug=Str::slug($request->name);
+        $imageSave->slug=Str::slug($request->name.'-'.$request->id);
         $imageSave->save();
 
         $store=new Store;
@@ -43,6 +46,7 @@ class StoreServices{
         $store->image_id=$imageSave->id;
         $store->address_id=$adresse->id;
         $store->status=$status;
+        $store->isAdmin=$isAdmin;
         $store->save();
 
     }
@@ -59,24 +63,24 @@ class StoreServices{
     public function update($request,$store){
 
         $status="";
+        $isAdmin=0;
 
         if(auth()->user()->role_id==1){
             $status="published";
+            $isAdmin=1;
         }
 
         else{
             $status="pending";
+            $isAdmin=0;
         }
-        $imageSave=$store->image->id;
-        if($request->hasFile('path')){
-            Storage::delete($store->image->path);
-            $image=$request->file('path')->store('public/images/store');
-            $imageSave=new Image;
-            $imageSave->path=$image;
-            $imageSave->slug=Str::slug($request->name);
-            $imageSave->save();
-
-        }
+        $image=$request->file('path')->store('public/images/store');
+        $imageSave=Image::updateOrCreate([
+            'id'=>$store->image->id
+        ],[
+            'path'=>$image,
+            'slug'=>Str::slug($request->name.'-'.$request->id)
+        ]);
 
         $adress=Address::updateOrCreate([
             'id'=>$store->address->id
@@ -90,9 +94,10 @@ class StoreServices{
             );
         $store->update([
             'name'=>$request->name,
-            'image_id'=>$imageSave,
+            'image_id'=>$imageSave->id,
             'address_id'=>$adress->id,
-            'status'=>$status
+            'status'=>$status,
+            'isAdmin'=>$isAdmin
         ]);
     }
 
@@ -109,8 +114,6 @@ class StoreServices{
         $store->delete();
         $image->delete();
         $adress->delete();
-
-
 
     }
 

@@ -29,7 +29,7 @@ return new class extends Migration
             ->constrained()
             ->restrictOnUpdate()
             ->restrictOnDelete();
-
+            $table->boolean('isAdmin');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

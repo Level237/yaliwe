@@ -16,7 +16,8 @@ class Store extends Model
         'name',
         'address_id',
         'image_id',
-        'status'
+        'status',
+        'isAdmin'
     ];
 
 
