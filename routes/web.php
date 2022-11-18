@@ -38,9 +38,9 @@ Route::middleware(['auth','customer'])->name('customer.')->prefix('yaliwe.custom
 
 });
 
-/*Route::get('admin_dashbord', function () {
-    return view('admin_dashbord.index_admin');
-})->name('admin_dashbord');*/
+Route::get('mail', function () {
+    return view('email.master');
+})->name('mail');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
