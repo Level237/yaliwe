@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\StoreController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,7 @@ Route::middleware(['auth','admin'])->name('admin.')->prefix('yaliwe.admin')->gro
     route::resource('stores',StoreController::class);
     route::resource('brands',BrandController::class);
     route::get('profile/Store-{name}{id}',[StoreController::class,'profile'])->name('profile.store');
+    route::resource('category', CategoryController::class);
 });
 
 // Controllers vendor
