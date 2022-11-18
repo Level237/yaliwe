@@ -16,18 +16,6 @@
                 </a>
             </li>
             <li class="menu-item has-submenu">
-                <a class="menu-link" href="{{ route('admin.category.index') }}">
-                    <i class="icon material-icons md-shopping_bag"></i>
-                    <span class="text">Products Category</span>
-                </a>
-                {{--  <div class="submenu">
-                    <a href="page-products-list.html">Product List</a>
-                    <a href="page-products-grid.html">Product grid</a>
-                    <a href="page-products-grid-2.html">Product grid 2</a>
-                    <a href="page-categories.html">Categories</a>
-                </div>  --}}
-            </li>
-            <li class="menu-item has-submenu">
                 <a class="menu-link" href="page-products-list.html">
                     <i class="icon material-icons md-shopping_bag"></i>
                     <span class="text">Products</span>
@@ -36,7 +24,7 @@
                     <a href="page-products-list.html">Product List</a>
                     <a href="page-products-grid.html">Product grid</a>
                     <a href="page-products-grid-2.html">Product grid 2</a>
-                    <a href="page-categories.html">Categories</a>
+                    <a href="{{ route('admin.category.index') }}">Categories</a>
                 </div>
             </li>
             <li class="menu-item has-submenu">

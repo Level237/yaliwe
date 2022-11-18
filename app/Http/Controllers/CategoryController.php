@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category as ModelsCategory;
-use App\services\Category;
+use App\Models\Image;
+use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -17,7 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
         // Category()
-        $categories=(new App/sevices/Category)->index();
+        $categories= Category::all();
         return view('admin.category.index',compact('categories'));
     }
 
@@ -28,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return view ('admin.category.create');
     }
 
     /**
@@ -37,9 +38,37 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($request)
     {
-        (new App\Http\services\Category)->store($request);
+
+        $status="";
+        $isAdmin=0;
+
+        if(auth()->user()->role_id==1){
+            $status="published";
+            $isAdmin=1;
+        }
+
+        else{
+            $status="pending";
+            $isAdmin=0;
+        }
+
+        $image=$request->file('path')->store('public/images/category');
+
+        $imageSave=new Image;
+        $imageSave->path=$image;
+        $imageSave->slug=Str::slug($request->name.'-'.$request->id);
+        $imageSave->save();
+
+        $category=new Category();
+        $category->name=$request->name;
+        $category->image_id=$imageSave->id;
+        $category->status=$status;
+        $category->isAdmin=$isAdmin;
+        $category->save();
+
+
 
         return to_route('admin.category.index');
     }
@@ -64,7 +93,7 @@ class CategoryController extends Controller
     public function edit($id)
     // {->profile($id)
     {
-        $category=(new Category);
+        // $category=(new Category);
 
         return view('admin.category.edit',compact('category'));
     }
@@ -79,7 +108,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
 
-        (new ModelsCategory())->update($request,$category);
+        // (new ModelsCategory())->update($request,$category);
 
         return to_route('admin.category.index');
     }
@@ -92,7 +121,7 @@ class CategoryController extends Controller
      */
     public function destroy(\App\Models\Category $category)
     {
-        (new Category())->delete($category);
+        // (new Category())->delete($category);
 
         return to_route('admin.stores.index');
     }
