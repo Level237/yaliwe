@@ -50,11 +50,12 @@
             </li>
             <li class="menu-item has-submenu">
                 <a class="menu-link" href="page-sellers-cards.html">
-                    <i class="icon material-icons md-store"></i>
+                    <i class="icon material-icons md-stars"></i>
                     <span class="text">Marques</span>
                 </a>
                 <div class="submenu">
                     <a href="{{ route('admin.brands.index') }}">Listes des Marques</a>
+                    <a href="{{ route('admin.brands.create') }}">Ajouter une marque</a>
                 </div>
             </li>
             <li class="menu-item has-submenu">
