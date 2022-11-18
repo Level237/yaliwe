@@ -18,7 +18,7 @@
     </div>
     <div class="card mb-4">
                 <header class="card-header">
-            <h4 class="card-title">Latest orders</h4>
+            <h4 class="card-title">Toutes les categories</h4>
             <div class="row align-items-center">
                 <div class="col-md-3 col-12 me-auto mb-md-0 mb-3">
                     <div class="custom_select">
@@ -41,7 +41,7 @@
                 <div class="col-md-2 col-6">
                     <input type="date" value="02.05.2021" class="form-control" />
                 </div>
-                <div class="col-md-2 col-6">
+                {{--  <div class="col-md-2 col-6">
                     <div class="custom_select">
                         <select class="form-select select-nice">
                             <option selected>Status</option>
@@ -51,73 +51,96 @@
                             <option>Refund</option>
                         </select>
                     </div>
-                </div>
+                </div>  --}}
             </div>
         </header>
-        <!-- card-header end// -->
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
 
-                            <th scope="col">Image</th>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Status</th>
-                            <th scope="col" class="text-end">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <form action="admin.category.store" enctype="multipart/form-data">
+                                    @csrf
 
-                        @forelse ($categories as $category)
-                        <tr>
-                            <td> <img src="{{ Storage::url($category->image->path) }}" alt="" style="width:45px"></td>
-                            <td><b>{{ $category->name }}</b></td>
+                                    <div class="mb-4">
+                                        <label for="product_name" class="form-label">Nom</label>
+                                        <input placeholder="Nom de la categorie" name="name" type="text" class="form-control" />
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="product_slug" class="form-label">Slug</label>
+                                        <input placeholder="Slug de la categorie" name="slug" type="text" class="form-control" />
+                                    </div>
+                                    <div class="mb-4">
+                                        <div class="card-header">
+                                            <h4>Media</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="input-upload">
+                                                <img src="{{ asset('admin/imgs/theme/upload.svg') }}" alt="" />
+                                                <input name="path" class="form-control" type="file" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label class="form-label">Description</label>
+                                        <textarea placeholder="votre description ici " name="description" class="form-control"></textarea>
+                                    </div>
+                                    <div class="d-grid">
+                                        <button class="btn btn-primary">Create category</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
 
-                            <td><span class="badge rounded-pill alert-warning">{{ $category->status }}</span></td>
+                                                <th scope="col">Image</th>
+                                                <th scope="col">Nom</th>
+                                                <th scope="col">Description</th>
+                                                <th scope="col" class="text-end">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             @forelse ($categories as $category)
+                                            <tr>
+                                                <td> <img src="{{ Storage::url($category->image->path) }}" alt="" style="width:45px"></td>
+                                                <td><b>{{ $category->name }}</b></td>
 
-                            <td class="text-end">
-                                <div class="d-flex justify-content-end align-items-center">
-                                    {{--  <div class="p-2"> <a href="{{ route('admin.profile.store',[$store->name,$store->id]) }}" class="btn btn-md rounded font-sm">Detail</a></div>  --}}
-                                    <div class="p-2"> <a href="{{ route('admin.category.edit',$category->id) }}" class="btn btn-sm font-sm rounded btn-brand"> <i class="material-icons md-edit"></i> Edit </a></div>
-                                    <div class="p-2"><form method="POST" action="{{ route('admin.category.destroy', $category->id) }}" onsubmit="return confirm('Are you sure?')">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm rounded font-sm"  ><i class="material-icons md-delete_forever" aria-hidden="true" title="Suprimer">Suprimer</i></button>
+                                                <td><span class="badge rounded-pill alert-warning">{{ $category->description }}</span></td>
 
-                                       </form></div>
-                                  </div>
-                            </td>
-                        </tr>
+                                                <td class="text-end">
+                                                    <div class="d-flex justify-content-end align-items-center">
+                                                        <div class="p-2"> <a href="{{ route('admin.category.edit',$category->id) }}" class="btn btn-sm font-sm rounded btn-brand"> <i class="material-icons md-edit"></i> Edit </a></div>
+                                                        <div class="p-2"><form method="POST" action="{{ route('admin.category.destroy', $category->id) }}" onsubmit="return confirm('Are you sure?')">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit" class="btn btn-danger btn-sm rounded font-sm"  ><i class="material-icons md-delete_forever" aria-hidden="true" title="Suprimer">Suprimer</i></button>
 
-                        @empty
+                                                        </form></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
 
-                        @endforelse
+                                            @empty
 
+                                            @endforelse
 
-                    </tbody>
-                </table>
-            </div>
-            <!-- table-responsive //end -->
-        </div>
-        <!-- card-body end// -->
-    </div>
-    <!-- card end// -->
-    <div class="pagination-area mt-15 mb-50">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-start">
-                <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                <li class="page-item"><a class="page-link" href="#">02</a></li>
-                <li class="page-item"><a class="page-link" href="#">03</a></li>
-                <li class="page-item"><a class="page-link dot" href="#">...</a></li>
-                <li class="page-item"><a class="page-link" href="#">16</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#"><i class="material-icons md-chevron_right"></i></a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</section>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- .col// -->
+                        </div>
+                        <!-- .row // -->
+                    </div>
+                    <!-- card body .// -->
+                </div>
+                <!-- card .// -->
+            </section>
 
 @endsection
+
+
 
