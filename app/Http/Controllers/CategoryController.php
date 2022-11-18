@@ -95,7 +95,8 @@ class CategoryController extends Controller
     public function edit($id)
     // {->profile($id)
     {
-        // $category=(new Category);
+        $category=Category::find($id);
+
 
         return view('admin.category.edit',compact('category'));
     }
@@ -112,6 +113,20 @@ class CategoryController extends Controller
 
         // (new ModelsCategory())->update($request,$category);
 
+        $image=$request->file('path')->store('public/images/category');
+        $imageSave=Image::updateOrCreate([
+            'id'=>$category->image->id
+        ],[
+            'path'=>$image,
+            'slug'=>Str::slug($request->name.'-'.$request->id)
+        ]);
+        $category->update([
+            'name'=>$request->name,
+            'slug'=>$request->slug,
+            'descriptiom'=>$request->description,
+            'image_id'=>$imageSave->id,
+        ]);
+
         return to_route('admin.category.index');
     }
 
@@ -124,8 +139,11 @@ class CategoryController extends Controller
     public function destroy(\App\Models\Category $category)
     {
         // (new Category())->delete($category);
+        $image=Image::find($category->image->id);
+        $category->delete();
+        $image->delete();
 
-        return to_route('admin.stores.index');
+        return to_route('admin.category.index');
     }
 
     // public function profile($name,$id){
