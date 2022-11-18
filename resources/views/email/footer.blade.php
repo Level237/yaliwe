@@ -10,12 +10,12 @@
                     <td class="pb30" align="center" style="padding-bottom:30px;">
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td class="img" width="50" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/t_white_ico_facebook.png" width="40" height="40" editable="true" border="0" alt="" /></a></td>
-                                <td class="img" width="50" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/t_white_ico_twitter.png" width="40" height="40" editable="true" border="0" alt="" /></a></td>
-                                <td class="img" width="50" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/t_white_ico_gplus.png" width="40" height="40" editable="true" border="0" alt="" /></a></td>
-                                <td class="img" width="50" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/t_white_ico_youtube.png" width="40" height="40" editable="true" border="0" alt="" /></a></td>
-                                <td class="img" width="50" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/t_white_ico_pinterest.png" width="40" height="40" editable="true" border="0" alt="" /></a></td>
-                                <td class="img" width="40" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="images/t_white_ico_linkedin.png" width="40" height="40" editable="true" border="0" alt="" /></a></td>
+                                <td class="img" width="50" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="assets/imgs/email/t_white_ico_facebook.png" width="40" height="40" editable="true" border="0" alt="" /></a></td>
+                                <td class="img" width="50" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="assets/imgs/email/t_white_ico_twitter.png" width="40" height="40" editable="true" border="0" alt="" /></a></td>
+                                <td class="img" width="50" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="assets/imgs/email/t_white_ico_gplus.png" width="40" height="40" editable="true" border="0" alt="" /></a></td>
+                                <td class="img" width="50" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="assets/imgs/email/t_white_ico_youtube.png" width="40" height="40" editable="true" border="0" alt="" /></a></td>
+                                <td class="img" width="50" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="assets/imgs/email/t_white_ico_pinterest.png" width="40" height="40" editable="true" border="0" alt="" /></a></td>
+                                <td class="img" width="40" style="font-size:0pt; line-height:0pt; text-align:left;"><a href="#" target="_blank"><img src="assets/imgs/email/t_white_ico_linkedin.png" width="40" height="40" editable="true" border="0" alt="" /></a></td>
                             </tr>
                         </table>
                     </td>
