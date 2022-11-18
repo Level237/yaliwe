@@ -46,9 +46,9 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <form action="admin.category.store" enctype="multipart/form-data">
+                                <form action="{{ route('admin.category.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
-
+                                    @method('post')
                                     <div class="mb-4">
                                         <label for="product_name" class="form-label">Nom</label>
                                         <input placeholder="Nom de la categorie" name="name" type="text" class="form-control" />
@@ -58,12 +58,10 @@
                                         <input placeholder="Slug de la categorie" name="slug" type="text" class="form-control" />
                                     </div>
                                     <div class="mb-4">
-                                        <div class="card-header">
-                                            <h4>Media</h4>
-                                        </div>
+                                        <label for="">Media</label>
                                         <div class="card-body">
                                             <div class="input-upload">
-                                                <img src="{{ asset('admin/imgs/theme/upload.svg') }}" alt="" />
+                                                {{--  <img src="{{ asset('admin/imgs/theme/upload.svg') }}" alt="" />  --}}
                                                 <input name="path" class="form-control" type="file" />
                                             </div>
                                         </div>
