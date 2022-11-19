@@ -15,7 +15,9 @@ class Store extends Model
     protected $fillable=[
         'name',
         'address_id',
-        'image_id'
+        'image_id',
+        'status',
+        'isAdmin'
     ];
 
 
@@ -24,7 +26,7 @@ class Store extends Model
         return $this->belongsTo(Image::class);
     }
 
-    public function adress():BelongsTo
+    public function address():BelongsTo
 
     {
         return $this->belongsTo(Address::class);

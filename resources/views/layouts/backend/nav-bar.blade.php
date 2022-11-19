@@ -24,7 +24,7 @@
                     <a href="page-products-list.html">Product List</a>
                     <a href="page-products-grid.html">Product grid</a>
                     <a href="page-products-grid-2.html">Product grid 2</a>
-                    <a href="page-categories.html">Categories</a>
+                    <a href="{{ route('admin.category.index') }}">Categories</a>
                 </div>
             </li>
             <li class="menu-item has-submenu">
@@ -45,6 +45,17 @@
                 </a>
                 <div class="submenu">
                     <a href="{{ route('admin.stores.create') }}">Ajouter une Boutique</a>
+                    <a href="{{ route('admin.stores.index') }}">Liste</a>
+                </div>
+            </li>
+            <li class="menu-item has-submenu">
+                <a class="menu-link" href="page-sellers-cards.html">
+                    <i class="icon material-icons md-stars"></i>
+                    <span class="text">Marques</span>
+                </a>
+                <div class="submenu">
+                    <a href="{{ route('admin.brands.index') }}">Listes des Marques</a>
+                    <a href="{{ route('admin.brands.create') }}">Ajouter une marque</a>
                 </div>
             </li>
             <li class="menu-item has-submenu">

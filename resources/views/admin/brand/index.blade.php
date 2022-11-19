@@ -7,7 +7,7 @@
 <section class="content-main">
     <div class="content-header">
         <div>
-            <h2 class="content-title card-title">Boutiques</h2>
+            <h2 class="content-title card-title">Marques</h2>
             <p>Lorem ipsum dolor sit amet.</p>
         </div>
         <div>
@@ -29,7 +29,6 @@
                     <thead>
                         <tr>
 
-                            <th scope="col">Image</th>
                             <th scope="col">Nom</th>
                             <th scope="col">Status</th>
                             <th scope="col" class="text-end">Action</th>
@@ -37,18 +36,23 @@
                     </thead>
                     <tbody>
 
-                        @forelse ($stores as $store)
+                        @forelse ($brands as $brand)
                         <tr>
-                            <td> <img src="{{ Storage::url($store->image->path) }}" alt="" style="width:45px"></td>
-                            <td><b>{{ $store->name }}</b></td>
 
-                            <td><span class="badge rounded-pill alert-warning">{{ $store->status }}</span></td>
+                            <td><b>{{ $brand->name }}</b></td>
+
+                            @if($brand->state==1)
+                                <td><span class="badge rounded-pill alert-warning">publié</span></td>
+                            @else
+                                <td><span class="badge rounded-pill alert-warning">non publié</span></td>
+                            @endif
+
 
                             <td class="text-end">
                                 <div class="d-flex justify-content-end align-items-center">
-                                    <div class="p-2"> <a href="{{ route('admin.profile.store',[$store->name,$store->id]) }}" class="btn btn-md rounded font-sm">Detail</a></div>
-                                    <div class="p-2"> <a href="{{ route('admin.stores.edit',$store->id) }}" class="btn btn-sm font-sm rounded btn-brand"> <i class="material-icons md-edit"></i> Edit </a></div>
-                                    <div class="p-2"><form method="POST" action="{{ route('admin.stores.destroy', $store->id) }}" onsubmit="return confirm('Are you sure?')">
+
+                                    <div class="p-2"> <a href="{{ route('admin.brands.edit',$brand->id) }}" class="btn btn-sm font-sm rounded btn-brand"> <i class="material-icons md-edit"></i> Edit </a></div>
+                                    <div class="p-2"><form method="POST" action="{{ route('admin.brands.destroy', $brand->id) }}" onsubmit="return confirm('Are you sure?')">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm rounded font-sm"  ><i class="material-icons md-delete_forever" aria-hidden="true" title="Suprimer">Suprimer</i></button>

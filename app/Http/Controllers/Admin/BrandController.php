@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Store;
-use Illuminate\Http\Request;
-use App\services\StoreServices;
 use App\Http\Controllers\Controller;
-use App\Models\Address;
+use App\Models\Brand;
+use App\services\BrandServices;
+use Illuminate\Http\Request;
 
-class StoreController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +16,8 @@ class StoreController extends Controller
      */
     public function index()
     {
-        $stores=(new StoreServices())->index();
-
-        return view('admin.store.index',compact('stores'));
+        $brands=(new BrandServices())->index();
+        return view('admin.brand.index',compact('brands'));
     }
 
     /**
@@ -29,7 +27,7 @@ class StoreController extends Controller
      */
     public function create()
     {
-        return view('admin.store.create');
+        return view('admin.brand.create');
     }
 
     /**
@@ -40,9 +38,9 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        (new StoreServices)->store($request);
+        (new BrandServices())->store($request);
 
-        return to_route('admin.stores.index');
+        return to_route('admin.brands.index');
     }
 
     /**
@@ -64,9 +62,8 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        $store=(new StoreServices())->profile($id);
-
-        return view('admin.store.edit',compact('store'));
+        $brand=(new BrandServices())->edit($id);
+        return view('admin.brand.edit',compact('brand'));
     }
 
     /**
@@ -76,12 +73,11 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Store $store)
+    public function update(Request $request, Brand $brand)
     {
+        (new BrandServices())->update($request,$brand);
 
-        (new StoreServices())->update($request,$store);
-
-        return to_route('admin.stores.index');
+        return to_route('admin.brands.index');
     }
 
     /**
@@ -90,21 +86,10 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Store $store)
+    public function destroy(Brand $brand)
     {
-        (new StoreServices())->delete($store);
+        (new BrandServices())->delete($brand);
 
-        return to_route('admin.stores.index');
-    }
-
-    public function profile($name,$id){
-
-        $store=(new StoreServices())->profile($id);
-
-        return view('admin.store.profile',compact('store'));
-    }
-
-    public function getModel(){
-
+        return to_route('admin.brands.index');
     }
 }
