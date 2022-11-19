@@ -39,12 +39,12 @@
             display: block !important;
             min-width: 100% !important;
             width: 100% !important;
-            background: #333545;
+            background: #4cab37;
             -webkit-text-size-adjust: none
         }
 
         a {
-            color: #4e54cb;
+            color: #4cab37;
             text-decoration: none
         }
 
@@ -241,8 +241,8 @@
 </head>
 
 <body class="body"
-    style="padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#333545; -webkit-text-size-adjust:none;">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#333545">
+    style="padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#4cab37; -webkit-text-size-adjust:none;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#000">
         <tr>
             <td align="center" valign="top">
                 <!-- Main -->
@@ -342,7 +342,7 @@
                                                                 <tr>
                                                                     <td class="fluid-img"
                                                                         style="font-size:0pt; line-height:0pt; text-align:left;">
-                                                                        <img src="images/t3_image1.jpg" width="325"
+                                                                        <img src="assets/imgs/email/t3_image1.jpg" width="325"
                                                                             height="400" editable="true"
                                                                             border="0" alt="" /></td>
                                                                 </tr>
@@ -390,9 +390,9 @@
                                                                                                         href="#"
                                                                                                         target="_blank"
                                                                                                         class="link"
-                                                                                                        style="color:#4e54cb; text-decoration:none;"><span
+                                                                                                        style="color:#4cab37; text-decoration:none;"><span
                                                                                                             class="link"
-                                                                                                            style="color:#4e54cb; text-decoration:none;">shop
+                                                                                                            style="color:#4cab37; text-decoration:none;">shop
                                                                                                             now</span></a>
                                                                                                 </multiline>
                                                                                             </td>

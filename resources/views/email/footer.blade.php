@@ -1,5 +1,5 @@
 <!-- Footer -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#4e54cb">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#4cab37" >
     <tr>
         <td class="footer" style="padding:60px 30px;">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -21,10 +21,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="separator" style="border-bottom:1px solid #5e63d3;"></td>
+                    <td class="separator" style="border-bottom:1px solid #4cab37;"></td>
                 </tr>
                 <tr>
-                    <td class="text-footer pt30" style="color:#a9ace3; font-family:'Raleway', Arial,sans-serif; font-size:12px; line-height:20px; text-align:center; padding-top:30px;"><multiline>Copyright &copy; 0123 Shopilicious <br />728 Dooley Branch, Beckershire, LA 63598-2909</multiline></td>
+                    <td class="text-footer pt30" style="color:#ffffff; font-family:'Raleway', Arial,sans-serif; font-size:12px; line-height:20px; text-align:center; padding-top:30px;"><multiline>Copyright &copy; 2022 <br />Yaliwe E-commerce</multiline></td>
                 </tr>
             </table>
         </td>
@@ -39,7 +39,7 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td class="text-footer2" style="color:#85868d; font-family:'Raleway', Arial,sans-serif; font-size:12px; line-height:20px; text-align:center;">
-                        <multiline>You are receiving this email because you have subscribed to receive updates from us. <br />Should you wish to cancel your subscription, please</multiline>
+                        <multiline>Vous recevez cet e-mail parce que vous vous êtes abonné pour recevoir des mises à jour de notre part. <br />Si vous souhaitez annuler votre abonnement, veuillez</multiline>
                         <unsubscribe class="link-footer-u" style="color:#c3c3c3; text-decoration:underline;">click here to unsubscribe</unsubscribe>.
                     </td>
                 </tr>
