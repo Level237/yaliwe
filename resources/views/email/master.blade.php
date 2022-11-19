@@ -327,7 +327,7 @@
                                         </table>
                                         <!-- END Pre Header -->
 
-                                        @include('email.header')
+                                        @include('email.layout.header')
 
                                         <repeater>
                                             <!-- Intro -->
@@ -415,7 +415,7 @@
 
 
 
-                                        @include('email.footer')
+                                        @include('email.layout.footer')
 
 
                                     </td>
