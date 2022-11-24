@@ -26,7 +26,7 @@ class StoreRequest extends FormRequest
         return [
             'name'=>"required|min:3|max:10",
             'path'=>"required|mimes:png,jpg,jpeg",
-            'number'=>"required|integer|min:8|max:15",
+            'number'=>"required|integer|min:8|",
             'street'=>"required",
             'city'=>"required",
             'country'=>"required",
