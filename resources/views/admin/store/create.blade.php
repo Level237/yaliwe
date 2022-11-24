@@ -27,7 +27,11 @@
                                     <div class="mb-4">
                                         <label for="product_name" class="form-label">Nom</label>
                                         <input type="text" name="name" placeholder="Type here" class="form-control" id="product_name" />
+                                        @error('name')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
+
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="mb-4">
@@ -35,17 +39,26 @@
                                                 <div class="row gx-2">
                                                     <input placeholder="" name="country" type="text" class="form-control" />
                                                 </div>
+                                                @error('country')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="mb-4">
                                                 <label class="form-label">ville</label>
                                                 <input placeholder="" name="city" type="text" class="form-control" />
+                                                @error('city')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="mb-4">
                                             <label class="form-label">Rue</label>
                                             <input placeholder="" name="street" type="text" class="form-control" />
+                                            @error('street')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                         </div>
 
                                         <div class="row align-items-center">
@@ -53,11 +66,17 @@
                                                 <select class="form-select"  id="" name="country_code">
                                                     <option value="+237">+237</option>
                                                 </select>
+                                                @error('country_code')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="col-lg-8">
 
                                             <input type="text" name="number" placeholder="Numero de Telephone" class="form-control" id="product_name" />
-                                            </div>
+                                            @error('number')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                         </div>
 
                                     </div>
@@ -78,6 +97,10 @@
                                 <div class="input-upload">
                                     <img src="{{ asset('admin/imgs/theme/upload.svg') }}" alt="" />
                                     <input name="path" class="form-control" type="file" />
+
+                                            @error('path')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                 </div>
                             </div>
         </form>

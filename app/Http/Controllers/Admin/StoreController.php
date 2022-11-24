@@ -6,6 +6,7 @@ use App\Models\Store;
 use Illuminate\Http\Request;
 use App\services\StoreServices;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreRequest;
 use App\Models\Address;
 
 class StoreController extends Controller
@@ -38,7 +39,7 @@ class StoreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         $store=(new StoreServices)->store($request);
 
@@ -83,7 +84,7 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Store $store)
+    public function update(StoreRequest $request, Store $store)
     {
 
         (new StoreServices())->update($request,$store);
