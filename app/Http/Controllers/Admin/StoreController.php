@@ -40,9 +40,16 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        (new StoreServices)->store($request);
+        $store=(new StoreServices)->store($request);
 
-        return to_route('admin.stores.index');
+        if(!$store){
+            return to_route('admin.stores.index')->with('alert-success','Boutique enregistré avec succes');
+        }
+
+        else{
+            return redirect()->back()->with('alert-danger','Une erreur est survenue, veuillez réessayez plutard');
+        }
+
     }
 
     /**

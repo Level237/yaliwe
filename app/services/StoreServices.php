@@ -62,16 +62,16 @@ class StoreServices{
 
     public function update($request,$store){
 
-        $status="";
+        $status=0;
         $isAdmin=0;
 
         if(auth()->user()->role_id==1){
-            $status="published";
+            $status=1;
             $isAdmin=1;
         }
 
         else{
-            $status="pending";
+            $status=0;
             $isAdmin=0;
         }
         $image=$request->file('path')->store('public/images/store');

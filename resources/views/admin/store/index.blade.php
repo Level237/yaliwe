@@ -14,6 +14,14 @@
             <input type="text" placeholder="Search order ID" class="form-control bg-white" />
         </div>
     </div>
+
+    @if(session('alert-success'))
+        @component('components.alert-success')
+        @endcomponent
+    @elseif(session('alert-danger'))
+        @component('components.alert-danger')
+        @endcomponent
+    @endif
     <div class="card mb-4">
         <header class="card-header">
             <div class="row gx-3">
