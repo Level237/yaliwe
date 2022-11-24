@@ -101,7 +101,7 @@ class StoreController extends Controller
     {
         (new StoreServices())->delete($store);
 
-        return to_route('admin.stores.index');
+        return to_route('admin.stores.index')->with('alert-danger','Boutique supprimé avec success');
     }
 
     public function profile($name,$id){
