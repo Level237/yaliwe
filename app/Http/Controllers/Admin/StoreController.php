@@ -88,7 +88,7 @@ class StoreController extends Controller
 
         (new StoreServices())->update($request,$store);
 
-        return to_route('admin.stores.index');
+        return to_route('admin.stores.index')->with('alert-success','Boutique mis a jour avec success');
     }
 
     /**
