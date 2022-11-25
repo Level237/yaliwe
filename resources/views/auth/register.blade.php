@@ -56,11 +56,14 @@
                                        
                                         <div class="payment_option mb-50">
                                             <div class="custome-radio">
-                                                <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios3" checked="" />
-                                                <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#bankTranfer" aria-controls="bankTranfer">I am a customer</label>
+                                                <input class="form-check-input" required="" type="radio" name="role" 
+                                                id="exampleRadios3" checked="" value="customer" />
+                                                <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#bankTranfer" 
+                                                aria-controls="bankTranfer">I am a customer</label>
                                             </div>
                                             <div class="custome-radio">
-                                                <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios4" checked="" />
+                                                <input class="form-check-input" required="" type="radio" name="role" 
+                                                id="exampleRadios4" checked="" value="vendor"/>
                                                 <label class="form-check-label" for="exampleRadios4" data-bs-toggle="collapse" data-target="#checkPayment" aria-controls="checkPayment">I am a vendor</label>
                                             </div>
                                         </div>
@@ -114,36 +117,37 @@
         // dropdownContainer: document.body,
         // excludeCountries: ["us"],
          //formatOnDisplay: false,
-        // geoIpLookup: function(callback) {
-        //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-        //     var countryCode = (resp && resp.country) ? resp.country : "";
-        //     callback(countryCode);
-        //   });
-        // },
+         geoIpLookup: function(callback) {
+          $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+            var countryCode = (resp && resp.country) ? resp.country : "";
+            callback(countryCode);
+           });
+         },
          //hiddenInput: "full_number",
         initialCountry: 'cm',
         // localizedCountries: { 'de': 'Deutschland' },
         //nationalMode: true,
         //onlyCountries: ['cm'],
-        // placeholderNumberType: "MOBILE",
+         placeholderNumberType: "MOBILE",
         // preferredCountries: ['cn', 'jp'],
         separateDialCode: true,
-        utilsScript: "E:/laragon/www/sharemyride/public/intl-tel-input-master/buildbuild/js/utils.js",
+        utilsScript: "{{ asset('intl-tel-input-master/build/js/utils.js') }}",
       });
       
     
       var countryData = iti.getSelectedCountryData();
-      //alert(countryData.dialCode);
-      //alert(countryData.name);
+      console.log(countryData);
+      document.getElementById("country_name").value = countryData.name;
+      document.getElementById("country_code").value = countryData.dialCode;
+      document.getElementById("country_iso2").value = countryData.iso2;
       
       
       function myFunction() {
           var countryData = iti.getSelectedCountryData();
           //alert(countryData.dialCode);
           //alert(countryData.name);
-          document.getElementById("country_name").value = countryData.name;
-          document.getElementById("country_code").value = countryData.dialCode;
-          document.getElementById("country_iso2").value = countryData.iso2;
+          console.log(countryData);
+          
           
       }
       

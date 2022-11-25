@@ -39,14 +39,23 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'phone' => ['required', 'string', 'max:255'],
+            'role' => ['required', 'string', 'in:vendor,customer'],
         ]);
       
+        if($request->role=='vendor')
+            $role = 2;
+        else
+            $role = 3;
         $user = User::create([
             'name' => $request->name,
             'lastname' => $request->lastname,
-            'role_id' => 1,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role_id' => $role,
+            'phone' => $request->phone,
+            'country_name' => $request->country_name,
+            'country_code' => $request->country_code,
+            'country_iso2' => $request->country_iso2,
         ]);
 
         event(new Registered($user));
