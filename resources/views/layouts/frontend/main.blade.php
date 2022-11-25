@@ -16,6 +16,8 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/plugins/slider-range.css" />
     <link rel="stylesheet" href="assets/css/main.css?v=5.5" />
+    <!-- Loading intl plugin for phone numbers-->
+    <link rel="stylesheet" href="{{ asset('intl-tel-input-master') }}/build/css/intlTelInput.css">
 </head>
 
 <body>

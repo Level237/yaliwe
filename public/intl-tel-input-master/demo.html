@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>International Telephone Input</title>
+  <link rel="stylesheet" href="build/css/intlTelInput.css">
+  <link rel="stylesheet" href="build/css/demo.css">
+  
+  
+</head>
+
+<body >
+  <h1>International Telephone Input</h1>
+  <form action="afficher.php" method="post" onsubmit="myFunction()">
+   
+    <input id="phone" name="phone" type="tel" required>
+	<input id="country_name" name="country_name" type="hidden">
+	<input id="country_code" name="country_code" type="hidden">
+    <button type="submit">Submit</button>
+	<p id="demo"></p>
+  </form>
+
+  <script src="build/js/intlTelInput.js"></script>
+  <script>
+  
+		var input = document.querySelector("#phone");
+		var iti = window.intlTelInput(input, {
+		  //allowDropdown: false,
+		  //autoHideDialCode: true,
+		  // autoPlaceholder: "off",
+		  // dropdownContainer: document.body,
+		  // excludeCountries: ["us"],
+		  // formatOnDisplay: false,
+		  // geoIpLookup: function(callback) {
+		  //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+		  //     var countryCode = (resp && resp.country) ? resp.country : "";
+		  //     callback(countryCode);
+		  //   });
+		  // },
+		   //hiddenInput: "full_number",
+		  // initialCountry: "auto",
+		  // localizedCountries: { 'de': 'Deutschland' },
+		  //nationalMode: true,
+		  //onlyCountries: ['cm'],
+		  // placeholderNumberType: "MOBILE",
+		  // preferredCountries: ['cn', 'jp'],
+		  separateDialCode: true,
+		  utilsScript: "build/js/utils.js",
+		});
+		
+      
+		var countryData = iti.getSelectedCountryData();
+		//alert(countryData.dialCode);
+		//alert(countryData.name);
+		
+		
+		function myFunction() {
+			var countryData = iti.getSelectedCountryData();
+			//alert(countryData.dialCode);
+			//alert(countryData.name);
+			document.getElementById("country_name").value = countryData.name;
+			document.getElementById("country_code").value = countryData.dialCode;
+		}
+		
+
+  </script>
+</body>
+
+</html>
