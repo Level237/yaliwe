@@ -1,5 +1,6 @@
 <?php
-
+use App\Models\User;
+use App\Models\Brand;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -24,6 +25,16 @@ return new class extends Migration
             $table->double('unit_price');
             $table->bigInteger('stock_quantity');
             $table->boolean('nature');
+
+            $table->foreignIdFor(User::class)
+            ->constrained()
+            ->restrictOnUpdate()
+            ->restrictOnDelete();
+
+            $table->foreignIdFor(Brand::class)
+            ->constrained()
+            ->restrictOnUpdate()
+            ->restrictOnDelete();
             $table->timestamps();
         });
     }

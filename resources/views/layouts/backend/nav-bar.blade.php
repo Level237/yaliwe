@@ -1,14 +1,21 @@
 <aside class="navbar-aside" id="offcanvas_aside">
     <div class="aside-top">
-        <a href="index.html" class="brand-wrap">
-            <img src="admin/imgs/theme/logo.svg" class="logo" alt="Nest Dashboard" />
+        <a href="{{ route('dashboard') }}" class="brand-wrap">
+            <img src="admin/imgs/theme/logo.svg" class="logo" alt="Yaliwe Dashboard" />
         </a>
         <div>
-            <button class="btn btn-icon btn-aside-minimize"><i class="text-muted material-icons md-menu_open"></i></button>
+            <button class="btn btn-icon btn-aside-minimize"><i class="text-muted material-icons md-menu_open">
+                </i></button>
         </div>
     </div>
     <nav>
         <ul class="menu-aside">
+            <li class="menu-item">
+                <a class="menu-link" href="{{ route('homepage') }}" target="_blank">
+                    <i class="icon material-icons md-home"></i>
+                    <span class="text">FrontOffice</span>
+                </a>
+            </li>
             <li class="menu-item active">
                 <a class="menu-link" href="index.html">
                     <i class="icon material-icons md-home"></i>

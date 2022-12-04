@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::get('/', function () {
     return view('layouts.frontend.homepage');
-});
+})->name('homepage');
 // Controllers admin
 Route::middleware(['auth','admin'])->name('admin.')->prefix('yaliwe.admin')->group(function(){
 

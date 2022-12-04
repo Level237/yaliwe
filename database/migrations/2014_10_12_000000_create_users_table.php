@@ -17,8 +17,8 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('lastname');
+            $table->string('name',255);
+            $table->string('lastname',255);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -27,7 +27,11 @@ return new class extends Migration
             ->constrained()
             ->restrictOnUpdate()
             ->restrictOnDelete();
-
+            
+            $table->string('phone',100);
+            $table->string('country_name',100);
+            $table->string('country_code',20);
+            $table->string('country_iso2',10);
             $table->rememberToken();
             $table->timestamps();
         });

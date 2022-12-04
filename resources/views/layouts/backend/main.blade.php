@@ -13,6 +13,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="admin/imgs/theme/favicon.svg" />
         <!-- Template CSS -->
         <link href="{{ asset('admin/css/main.css') }}" rel="stylesheet" type="text/css" />
+        <title>@yield('title')</title>
     </head>
 
     <body>
