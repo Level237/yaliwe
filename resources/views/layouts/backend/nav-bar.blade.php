@@ -1,7 +1,7 @@
 <aside class="navbar-aside" id="offcanvas_aside">
     <div class="aside-top">
         <a href="{{ route('dashboard') }}" class="brand-wrap">
-            <img src="admin/imgs/theme/logo.svg" class="logo" alt="Yaliwe Dashboard" />
+            <img src="{{ asset('admin/imgs/theme/logo.svg') }}" class="logo" alt="Yaliwe Dashboard" />
         </a>
         <div>
             <button class="btn btn-icon btn-aside-minimize"><i class="text-muted material-icons md-menu_open">
@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li class="menu-item active">
-                <a class="menu-link" href="index.html">
+                <a class="menu-link" href="{{ route('dashboard') }}">
                     <i class="icon material-icons md-home"></i>
                     <span class="text">Dashboard</span>
                 </a>
@@ -48,11 +48,11 @@
             <li class="menu-item has-submenu">
                 <a class="menu-link" href="page-sellers-cards.html">
                     <i class="icon material-icons md-store"></i>
-                    <span class="text">Boutiques</span>
+                    <span class="text">Stores</span>
                 </a>
                 <div class="submenu">
-                    <a href="{{ route('admin.stores.create') }}">Ajouter une Boutique</a>
-                    <a href="{{ route('admin.stores.index') }}">Liste</a>
+                    <a href="{{ route('admin.stores.create') }}">Add store</a>
+                    <a href="{{ route('admin.stores.index') }}">List stores</a>
                 </div>
             </li>
             <li class="menu-item has-submenu">

@@ -1,13 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\CategoryRequest;
-use Illuminate\Http\Request;
-use App\Models\Category;
-use App\Models\Image;
-use Illuminate\Support\Str;
 
-class CategoryController extends Controller
+use Illuminate\Http\Request;
+
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.category.index', compact('categories'));
+        //
     }
 
     /**
@@ -27,7 +23,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        //
     }
 
     /**
@@ -36,31 +32,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryRequest $request)
+    public function store(Request $request)
     {
-        $validatedData = $request->validated();
-
-
-        $fileName = time().'_'.$request->image->getClientOriginalName().'.'.$request->image->extension(); 
-             
-        //Storing file in disk
-        $request->image->storeAs('categories-logos', $fileName);
-             
-        //Deleting the old file from the disk
-        $image = Image::create([
-            'path'=> $fileName,
-        ]);
-
-       
-        $Category = Category::create([
-            'name'=>$request->name,
-            'description'=>$request->description,
-            'state'=> $request->state,
-            'image_id'=> $image->id,
-            'slug'=> Str::slug($request->name),
-        ]);
-
-        return redirect()->route('admin.category.index')->with('update_success', 'Catégorie ajoutée avec succès');
+        //
     }
 
     /**

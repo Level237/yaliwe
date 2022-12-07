@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-9">
             <div class="content-header">
-                <h2 class="content-title">Ajouter une Boutique</h2>
+                <h2 class="content-title">Add a store</h2>
         <form method="POST" action="{{ route('admin.stores.store') }}" enctype="multipart/form-data">
                         @csrf
                             <div>
