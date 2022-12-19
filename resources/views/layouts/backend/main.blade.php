@@ -26,14 +26,14 @@
 
         @include('layouts.backend.footer')
         </main>
-        <script src="admin/js/vendors/jquery-3.6.0.min.js"></script>
-        <script src="admin/js/vendors/bootstrap.bundle.min.js"></script>
-        <script src="admin/js/vendors/select2.min.js"></script>
-        <script src="admin/js/vendors/perfect-scrollbar.js"></script>
-        <script src="admin/js/vendors/jquery.fullscreen.min.js"></script>
-        <script src="admin/js/vendors/chart.js"></script>
+        <script src="{{ asset('admin/js/vendors/jquery-3.6.0.min.js') }}"></script>
+        <script src="{{ asset('admin/js/vendors/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('admin/js/vendors/select2.min.js') }}"></script>
+        <script src="{{ asset('admin/js/vendors/perfect-scrollbar.js') }}"></script>
+        <script src="{{ asset('admin/js/vendors/jquery.fullscreen.min.js') }}"></script>
+        <script src="{{ asset('admin/js/vendors/chart.js') }}"></script>
         <!-- Main Script -->
-        <script src="admin/js/main.js?v=1.1" type="text/javascript"></script>
-        <script src="admin/js/custom-chart.js" type="text/javascript"></script>
+        <script src="{{ asset('admin/js/main.js?v=1.1') }}" type="text/javascript"></script>
+        <script src="{{ asset('admin/js/custom-chart.js') }}" type="text/javascript"></script>
     </body>
 </html>

@@ -80,9 +80,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -94,7 +94,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd('hello');
     }
 
     /**
@@ -103,8 +103,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        //First check if category contains products
+        $category->delete();
+        return back()->with('update_failure','votre Produit à bien été bien supprimé');
+
     }
 }

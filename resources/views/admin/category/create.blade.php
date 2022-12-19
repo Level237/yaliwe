@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', "Création d'une catégorie")
+@section('title', "Create category")
 
 
 @section('content')
